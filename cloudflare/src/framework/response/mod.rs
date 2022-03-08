@@ -10,7 +10,7 @@ pub struct ApiSuccess<ResultType> {
     pub result: ResultType,
     pub result_info: Option<JsonValue>,
     pub messages: Option<JsonValue>,
-    pub errors: Vec<ApiError>,
+    pub errors: Option<Vec<ApiError>>,
 }
 
 pub type ApiResponse<ResultType> = Result<ApiSuccess<ResultType>, ApiFailure>;
