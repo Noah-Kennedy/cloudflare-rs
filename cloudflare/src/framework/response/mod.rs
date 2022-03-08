@@ -9,8 +9,10 @@ use serde_json::value::Value as JsonValue;
 pub struct ApiSuccess<ResultType> {
     pub result: ResultType,
     pub result_info: Option<JsonValue>,
-    pub messages: Option<JsonValue>,
-    pub errors: Option<Vec<ApiError>>,
+    #[serde(default)]
+    pub messages: JsonValue,
+    #[serde(default)]
+    pub errors: Vec<ApiError>,
 }
 
 pub type ApiResponse<ResultType> = Result<ApiSuccess<ResultType>, ApiFailure>;
